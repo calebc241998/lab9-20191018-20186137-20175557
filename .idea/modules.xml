@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/LAB9_20191018_20186137_20175557/LAB9_20191018_20186137_20175557.iml" filepath="$PROJECT_DIR$/LAB9_20191018_20186137_20175557/LAB9_20191018_20186137_20175557.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/lab9-20191018-20186137-20175557.iml" filepath="$PROJECT_DIR$/.idea/lab9-20191018-20186137-20175557.iml" />
     </modules>
   </component>

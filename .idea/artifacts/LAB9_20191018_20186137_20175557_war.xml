@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="LAB9_20191018_20186137_20175557:war">
+    <output-path>$PROJECT_DIR$/LAB9_20191018_20186137_20175557/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>LAB9_20191018_20186137_20175557</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="LAB9_20191018_20186137_20175557-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="LAB9_20191018_20186137_20175557:war exploded" />
+    </root>
+  </artifact>
+</component>
