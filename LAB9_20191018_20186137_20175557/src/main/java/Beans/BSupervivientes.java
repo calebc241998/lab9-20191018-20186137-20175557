@@ -3,13 +3,15 @@ package Beans;
 public class BSupervivientes extends BHumanos {
     private Float peso;
     private Float fuerza;
-    private String idPareja;
+    private String pareja;
+    private Float carga;
 
-    public BSupervivientes(String idHumanos, String nombre, String apellido, String sexo, int estado, Float peso, Float fuerza, String idPareja) {
-        super(idHumanos, nombre, apellido, sexo, estado);
+    public BSupervivientes(String idHumanos, String nombre, String sexo, Float peso, Float fuerza, String pareja, Float carga) {
+        super(idHumanos, nombre, sexo);
         this.peso = peso;
         this.fuerza = fuerza;
-        this.idPareja = idPareja;
+        this.pareja = pareja;
+        this.carga = carga;
     }
 
     public Float getPeso() {
@@ -28,11 +30,11 @@ public class BSupervivientes extends BHumanos {
         this.fuerza = fuerza;
     }
 
-    public String getIdPareja() {
-        return idPareja;
+    public String getPareja() {
+        return pareja;
     }
 
-    public void setIdPareja(String idPareja) {
-        this.idPareja = idPareja;
+    public void setPareja(String Pareja) {
+        this.pareja = Pareja;
     }
 }

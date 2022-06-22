@@ -6,6 +6,12 @@ public class BHumanos {
     private String sexo;
     private String estado;
 
+    public BHumanos(String idHumanos, String nombre, String sexo) {
+        this.idHumanos = idHumanos;
+        this.nombre = nombre;
+        this.sexo = sexo;
+    }
+
     public BHumanos(String idHumanos, String nombre, String sexo, String estado) {
         this.idHumanos = idHumanos;
         this.nombre = nombre;

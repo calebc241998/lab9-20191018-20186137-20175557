@@ -16,9 +16,9 @@ public class ApocalipsisServlet extends HttpServlet {
 
         switch(action){
             case "listar" -> {
-                request.setAttribute("Mision1",daoApocalipsis.Mision1());
+                request.setAttribute("Mision1",daoApocalipsis.ObtenerListaHumanos());
 
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("Apocalipsis.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("mision1.jsp");
                 requestDispatcher.forward(request,response);
             }
             case "zombies" -> {
@@ -27,7 +27,7 @@ public class ApocalipsisServlet extends HttpServlet {
                 requestDispatcher.forward(request,response);
             }
             case "supervivientes" -> {
-                //request.setAttribute("Mision4",daoApocalipsis.Mision2());
+                //request.setAttribute("Mision4",daoApocalipsis.ObtenerListaSupervivientes());
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("Supervivientes.jsp");
                 requestDispatcher.forward(request,response);
             }
