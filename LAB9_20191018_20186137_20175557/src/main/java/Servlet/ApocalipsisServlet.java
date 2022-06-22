@@ -23,7 +23,7 @@ public class ApocalipsisServlet extends HttpServlet {
                 requestDispatcher.forward(request,response);
             }
             case "zombies" -> {
-                //request.setAttribute("Mision4",daoApocalipsis.Mision4());
+                //request.setAttribute("Mision4",ZombiesDao.Mision4());
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("Mision4.jsp");
                 requestDispatcher.forward(request,response);
             }
@@ -82,6 +82,12 @@ public class ApocalipsisServlet extends HttpServlet {
                 }
                 response.sendRedirect(request.getContextPath() + "/Mision3.jsp");
             }*/
+            //Menu Zombies
+            case "crearZ" -> {
+                //request.setAttribute("listaZombies",zombiesDao.ObtenerListaZombies());
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("formZombie.jsp");
+                requestDispatcher.forward(request,response);
+            }
         }
 
 
@@ -104,11 +110,20 @@ public class ApocalipsisServlet extends HttpServlet {
                 //daoApocalipsis.mision2CrearS(id, nombre, sexo, peso, fuerza, nomPareja, pesocargado);
                 response.sendRedirect(request.getContextPath() + "/mision2.jsp");
             }
-            /*case "añadir" -> {
+            /*case "añadirV" -> {
                 String nomVirus = request.getParameter("nomVirus");
                 String nomVariante = request.getParameter("nomVariante");
                 VarianteDao.verificarVirus(nomVirus , NomVariante)
                 response.sendRedirect(request.getContextPath() + "/mision3.jsp");
+            }*/
+            /*case "añadirZ" -> {
+                String idHumano = request.getParameter("idHumano");
+                String fechainfeccion = request.getParameter("fechainfeccion");
+                String idVariante = request.getParameter("idvariante");
+                String idTipo = request.getParameter("idTipo");
+                String victimas = request.getParameter("victimas");
+                VarianteDao.añadirZombie(idHumano, fechainfeccion, idVariante, idTipo, victimas)
+                response.sendRedirect(request.getContextPath() + "/mision4.jsp");
             }*/
         }
 
