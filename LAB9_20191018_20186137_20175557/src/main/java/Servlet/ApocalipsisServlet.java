@@ -38,25 +38,23 @@ public class ApocalipsisServlet extends HttpServlet {
                 requestDispatcher.forward(request,response);
             }
             case "crearS" -> {
+                request.setAttribute("listaS", supervivientesdao.ObtenerListaSupervivientes());
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("formSuperviviente.jsp");
                 requestDispatcher.forward(request,response);
             }
-            /*case "editarS" -> {
+            case "editarS" -> {
                 String id = request.getParameter("id");
-                BSupervivientes bSupervivientes = daoApocalipsis.buscarPorId(id);
-                if (bSupervivientes != null) {
-                    request.setAttribute("BSupervivientes", bSupervivientes);
-                    RequestDispatcher requestDispatcher = request.getRequestDispatcher("editar.jsp");
-                    requestDispatcher.forward(request, response);
-                } else {
-                    response.sendRedirect(request.getContextPath() + "/ApocalipsisServlet?a=supervivientes");
-                }
-            }*/
+                //request.setAttribute("id",supervivientesdao.buscarHumano);
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("formEditarSuperviviente.jsp");
+                requestDispatcher.forward(request,response);
+            }
             case "eliminarS" -> {
                 String id = request.getParameter("id");
-                //request.setAttribute("Mision4",daoApocalipsis.Mision2EliminarS(id));
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("Mision2.jsp");
-                requestDispatcher.forward(request,response);
+                supervivientesdao.borrarSuperviviente(id);
+                supervivientesdao.eliminarMochila(id);
+                supervivientesdao.eliminarHumanoSuper(id);
+                supervivientesdao.actualizarAPareja(id);
+                response.sendRedirect(request.getContextPath() + "/ApocalipsisServlet?a=supervivientes");
             }
             case "inventario" -> {
                 String id = request.getParameter("id");
@@ -100,15 +98,31 @@ public class ApocalipsisServlet extends HttpServlet {
 
         switch(action) {
             case "guardar" -> {
+                String nombre = request.getParameter("nombre");
+                String apellido = request.getParameter("apellido");
+                String sexo = request.getParameter("sexo");
+
+                String pesoStr = request.getParameter("peso");
+                String fuerzaStr = request.getParameter("fuerza");
+                Float peso =Float.valueOf(pesoStr);
+                Float fuerza =Float.valueOf(fuerzaStr);
+                String idPareja = request.getParameter("idPareja");
+                supervivientesdao.añadirSupervivientes(nombre, apellido, sexo, peso,fuerza,idPareja);
+                response.sendRedirect(request.getContextPath() + "/ApocalipsisServlet?a=supervivientes");
+            }
+            case "editarS" -> {
                 String id = request.getParameter("id");
                 String nombre = request.getParameter("nombre");
-                String sexo = request.getParameter("sexo");
-                String peso = request.getParameter("peso");
-                String fuerza = request.getParameter("fuerza");
-                String nomPareja = request.getParameter("nomPareja");
-                String pesocargado = request.getParameter("pesocargado");
-                //daoApocalipsis.mision2CrearS(id, nombre, sexo, peso, fuerza, nomPareja, pesocargado);
-                response.sendRedirect(request.getContextPath() + "/mision2.jsp");
+                String pesoStr = request.getParameter("peso");
+                String fuerzaStr = request.getParameter("fuerza");
+                Float peso =Float.valueOf(pesoStr);
+                Float fuerza =Float.valueOf(fuerzaStr);
+                String idPareja = request.getParameter("idPareja");
+                supervivientesdao.editarNombre(id, nombre);
+                supervivientesdao.añadirPareja(id, idPareja);
+                supervivientesdao.editarPeso(id, peso);
+                supervivientesdao.editarFuerza(id, fuerza);
+                response.sendRedirect(request.getContextPath() + "/ApocalipsisServlet?a=supervivientes");
             }
             /*case "añadirV" -> {
                 String nomVirus = request.getParameter("nomVirus");
@@ -129,4 +143,3 @@ public class ApocalipsisServlet extends HttpServlet {
 
     }
 }
-
