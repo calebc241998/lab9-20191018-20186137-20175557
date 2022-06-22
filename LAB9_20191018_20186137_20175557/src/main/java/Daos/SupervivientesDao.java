@@ -1,4 +1,5 @@
 package Daos;
+import Beans.BHumanos;
 import Beans.BMochila;
 import Beans.BObjetos;
 import Beans.BSupervivientes;
@@ -7,6 +8,36 @@ import java.sql.*;
 import java.util.ArrayList;
 public class SupervivientesDao extends DaosBase {
 
+    public BHumanos obtenerId(BHumanos idhumano) {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        String sql_fuerza = "SELECT h.idHumanos AS 'ID' FROM humanos h;";
+        try (Connection conn = this.obtenerConexion();
+
+             PreparedStatement pstmt = conn.prepareStatement(sql_fuerza);
+        ) {
+            pstmt.setString(1, idhumano.getIdHumanos());
+
+
+            try (ResultSet rs = pstmt.executeQuery();) {
+                while (rs.next()) {
+                    idhumano.setIdHumanos(rs.getString(1));
+                    System.out.println(rs.getString(1));
+                }
+            }
+
+
+        } catch (SQLException error) {
+            error.printStackTrace();
+        }
+
+        return idhumano;
+    }
     public ArrayList<BSupervivientes> ObtenerListaSupervivientes(){
         ArrayList<BSupervivientes> obtenerlistasupervivientes = new ArrayList<>();
 
