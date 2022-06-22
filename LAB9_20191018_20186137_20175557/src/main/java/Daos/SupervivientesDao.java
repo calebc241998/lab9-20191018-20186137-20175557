@@ -84,33 +84,31 @@ public class SupervivientesDao extends DaosBase {
 
         return filtrarSupervPorSexo;
     }
-    public void añadirHumanos(String idHumanos, String nombre, String apellido, String sexo, String estado) {
+    public void añadirSupervivientes(String nombre, String apellido, String sexo, Float peso, Float fuerza, String idPareja) {
+        double seed = Math.random();
+        long gen = Math.round(Math.pow(10,11)*seed);
+        String id = String.valueOf(gen);
 
         try (Connection conn = this.obtenerConexion();) {
             String sql = "INSERT INTO Humanos (idHumanos,nombre,apellido,sexo,estado)\n" +
-                    "VALUES (?,?,?,?,0);";
+                    "VALUES (?,?,?,?,0);\n" +
+                    "INSERT INTO Supervivientes (idHumanos,peso,fuerza,idPareja)\n" +
+                    "VALUES (?,?,?,?);";
             try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                pstmt.setString(1, idHumanos);
-                pstmt.setString(2, nombre);
-                pstmt.setString(3, apellido);
-                pstmt.setString(4, sexo);
-                pstmt.setString(5, estado);
-                pstmt.executeUpdate();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    public void añadirSupervivientes(String idHumanos, Float peso, Float fuerza, String idPareja) {
+                pstmt.setString(1,id);
+                pstmt.setString(2,nombre);
+                pstmt.setString(3,apellido);
+                pstmt.setString(4,sexo);
+                pstmt.setString(5,id);
+                pstmt.setFloat(6, peso);
+                pstmt.setFloat(7, fuerza);
+                if(idPareja==null){
+                    assert false;
+                    pstmt.setNull(8, Integer.parseInt(idPareja));
+                }else{
+                    pstmt.setString(8, idPareja);
+                }
 
-        try (Connection conn = this.obtenerConexion();) {
-            String sql = "INSERT INTO Supervivientes (idHumanos,peso,fuerza,idPareja)\n" +
-                    "VALUES (?,?,?,NULL);";
-            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                pstmt.setString(1, idHumanos);
-                pstmt.setFloat(2, peso);
-                pstmt.setFloat(3, fuerza);
-                pstmt.setString(4, idPareja);
                 pstmt.executeUpdate();
             }
         } catch (SQLException e) {
