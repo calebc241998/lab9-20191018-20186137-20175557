@@ -1,8 +1,7 @@
 package Servlet;
-import Beans.BHumanos;
 import Beans.BSupervivientes;
-import Daos.DaoApocalipsis;
-
+import Daos.mision2Dao;
+import Daos.mision1Dao
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -12,12 +11,13 @@ import java.io.IOException;
 public class ApocalipsisServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DaoApocalipsis daoApocalipsis = new DaoApocalipsis();
+        mision1Dao mision1Dao = new mision1Dao();
+        mision2Dao mision2Dao = new mision2Dao();
         String action = request.getParameter("a") == null ? "listar" : request.getParameter("a");
 
         switch(action){
             case "listar" -> {
-                request.setAttribute("Mision1",daoApocalipsis.ObtenerListaHumanos());
+                request.setAttribute("Mision1",mision1Dao.ObtenerListaHumanos());
 
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("Mision1.jsp");
                 requestDispatcher.forward(request,response);
@@ -28,7 +28,7 @@ public class ApocalipsisServlet extends HttpServlet {
                 requestDispatcher.forward(request,response);
             }
             case "supervivientes" -> {
-                request.setAttribute("Mision2",daoApocalipsis.ObtenerListaSupervivientes());
+                request.setAttribute("Mision2", mision2Dao.ObtenerListaSupervivientes());
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("Mision2.jsp");
                 requestDispatcher.forward(request,response);
             }
@@ -43,7 +43,7 @@ public class ApocalipsisServlet extends HttpServlet {
             }
             case "editarS" -> {
                 String id = request.getParameter("id");
-                BSupervivientes bSupervivientes = daoApocalipsis.buscarPorId(id);
+                BSupervivientes bSupervivientes = mision2Dao.buscarPorId(id);
                 if (bSupervivientes != null) {
                     request.setAttribute("BSupervivientes", bSupervivientes);
                     RequestDispatcher requestDispatcher = request.getRequestDispatcher("editar.jsp");
@@ -72,7 +72,7 @@ public class ApocalipsisServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("a") == null ? "listar" : request.getParameter("a");
-        DaoApocalipsis daoApocalipsis = new DaoApocalipsis();
+        mision2Dao mision2Dao = new mision2Dao();
 
         switch(action) {
             case "guardar" -> {
