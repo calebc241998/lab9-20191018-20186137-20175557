@@ -4,6 +4,9 @@ public class BVirus {
     private int idVirus;
     private String nombreVirus;
 
+    public BVirus(int idVirus, String nombreVirus, int idVariante, String nombre_var) {
+    }
+
     public int getIdVirus() {
         return idVirus;
     }
