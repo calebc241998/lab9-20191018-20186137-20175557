@@ -1,14 +1,9 @@
 package Servlet;
-
 import Daos.HumanosDao;
 import Daos.SupervivientesDao;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet(name = "ApocalipsisServlet", value = "/ApocalipsisServlet")
@@ -16,14 +11,15 @@ public class ApocalipsisServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HumanosDao humanosdao = new HumanosDao();
+        //VarianteDao varianteDao = new VarianteDao();
         SupervivientesDao supervivientesdao = new SupervivientesDao();
         String action = request.getParameter("a") == null ? "listar" : request.getParameter("a");
 
         switch(action){
             case "listar" -> {
-                request.setAttribute("Mision1",humanosdao.ObtenerListaHumanos());
+                request.setAttribute("listahumanos",humanosdao.ObtenerListaHumanos());
 
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("Mision1.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("mision1.jsp");
                 requestDispatcher.forward(request,response);
             }
             case "zombies" -> {
@@ -42,20 +38,20 @@ public class ApocalipsisServlet extends HttpServlet {
                 requestDispatcher.forward(request,response);
             }
             case "crearS" -> {
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("Mision2.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("formSuperviviente.jsp");
                 requestDispatcher.forward(request,response);
             }
-            case "editarS" -> {
-                //String id = request.getParameter("id");
-                //BSupervivientes bSupervivientes = mision2Dao.buscarPorId(id);
-                //if (bSupervivientes != null) {
-                //    request.setAttribute("BSupervivientes", bSupervivientes);
-                //    RequestDispatcher requestDispatcher = request.getRequestDispatcher("editar.jsp");
-                //    requestDispatcher.forward(request, response);
-                //} else {
-                //    response.sendRedirect(request.getContextPath() + "/ApocalipsisServlet?a=supervivientes");
-                //}
-            }
+            /*case "editarS" -> {
+                String id = request.getParameter("id");
+                BSupervivientes bSupervivientes = daoApocalipsis.buscarPorId(id);
+                if (bSupervivientes != null) {
+                    request.setAttribute("BSupervivientes", bSupervivientes);
+                    RequestDispatcher requestDispatcher = request.getRequestDispatcher("editar.jsp");
+                    requestDispatcher.forward(request, response);
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/ApocalipsisServlet?a=supervivientes");
+                }
+            }*/
             case "eliminarS" -> {
                 String id = request.getParameter("id");
                 //request.setAttribute("Mision4",daoApocalipsis.Mision2EliminarS(id));
@@ -68,6 +64,24 @@ public class ApocalipsisServlet extends HttpServlet {
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("inventario.jsp");
                 requestDispatcher.forward(request,response);
             }
+            //Menú virus
+            case "virus" -> {
+                //request.setAttribute("Mision4",VirusDao.Mision3());
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("Mision3.jsp");
+                requestDispatcher.forward(request,response);
+            }
+            /*case "variante" -> {
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("nuevaVariante.jsp");
+                requestDispatcher.forward(request,response);
+            }*/
+            /*case "eliminarV" -> {
+                String idVariante = request.getParameter("idVariante");
+                request.setAttribute("Mision4",VarianteDao.eliminarVariante(id));
+                if (varianteDao.obteneridVariante(idVariante) != null) {
+                    varianteDao.eliminarVariante(idVariante);
+                }
+                response.sendRedirect(request.getContextPath() + "/Mision3.jsp");
+            }*/
         }
 
 
@@ -90,6 +104,12 @@ public class ApocalipsisServlet extends HttpServlet {
                 //daoApocalipsis.mision2CrearS(id, nombre, sexo, peso, fuerza, nomPareja, pesocargado);
                 response.sendRedirect(request.getContextPath() + "/mision2.jsp");
             }
+            /*case "añadir" -> {
+                String nomVirus = request.getParameter("nomVirus");
+                String nomVariante = request.getParameter("nomVariante");
+                VarianteDao.verificarVirus(nomVirus , NomVariante)
+                response.sendRedirect(request.getContextPath() + "/mision3.jsp");
+            }*/
         }
 
     }
