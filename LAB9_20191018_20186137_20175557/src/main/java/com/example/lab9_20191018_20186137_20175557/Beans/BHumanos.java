@@ -46,4 +46,10 @@ public class BHumanos {
     public void setEstado(int estado) {
         this.estado = estado;
     }
+
+    public void setPeso(String string) {
+    }
+
+    public void setFuerza(int anInt) {
+    }
 }
