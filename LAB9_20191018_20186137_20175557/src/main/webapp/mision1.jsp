@@ -7,13 +7,14 @@
 --%>
 <%@ page import="Beans.BHumanos" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean type="java.util.ArrayList<Beans.BHumanos>" scope="request" id="listahumanos"/>
 <html>
     <jsp:include page="/static/cabecera.jsp">
         <jsp:param name="title" value="Menu de humanos"/>
     </jsp:include>
     <body>
         <div class='container'>
-            <jsp:include page="navbar.jsp">
+            <jsp:include page="WEB-INF/navbar.jsp">
                 <jsp:param name="page" value="humanos"/>
             </jsp:include>
             <div class="pb-5 pt-4 px-3 titlecolor">
@@ -33,13 +34,13 @@
                         for (BHumanos humanos : listahumanos) {
                     %>
                     <tr>
-                        <td><%=humanos.getidHumanos()%>
+                        <td><%=humanos.getIdHumanos()%>
                         </td>
-                        <td><%=humanos.getnombre().getapellido()%>
+                        <td><%=humanos.getNombre()%>
                         </td>
-                        <td><%=humanos.getsexo()%>
+                        <td><%=humanos.getSexo()%>
                         </td>
-                        <td><%=humanos.getestado()%>
+                        <td><%=humanos.getEstado()%>
                         </td>
 
                     </tr>

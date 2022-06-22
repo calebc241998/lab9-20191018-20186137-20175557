@@ -6,45 +6,40 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="Beans.BSupervivientes" %>
-<%@ page import="com.example.lab9_20191018_20186137_20175557.Beans.BZombies" %>
-<%@ page import="com.example.lab9_20191018_20186137_20175557.Beans.BVirus" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <jsp:include page="/static/cabecera.jsp">
-        <jsp:param name="title" value="Menu de virus"/>
+        <jsp:param name="title" value="Menu de supervivientes"/>
     </jsp:include>
     <body>
         <div class='container'>
-            <jsp:include page="navbar.jsp">
-                <jsp:param name="page" value="virus"/>
+            <jsp:include page="WEB-INF/navbar.jsp">
+                <jsp:param name="page" value="supervivientes"/>
             </jsp:include>
             <div class="pb-5 pt-4 px-3 titlecolor">
                 <div class="col-lg-6">
-                    <h1 class='text-light'>Misión 3 :Menú de Virus</h1>
+                    <h1 class='text-light'>Misión 2 :Menú de Supervivientes</h1>
                 </div>
             </div>
             <div class="tabla">
                 <table class="table table-dark table-transparent table-hover">
                     <thead>
-                        <th>ID</th>
-                        <th>Virus</th>
-                        <th>IdVariante</th>
-                        <th>Variante</th>
-                        <th>Casos Encontrados(Campo Calculado)</th>
+                        <th>peso(kg)</th>
+                        <th>fuerza(en N)</th>
+                        <th>Nombre y Apellido de sus pareja</th>
+                        <th>Peso cargado(kg)</th>
                     </thead>
                     <%
-                        for (BVirus virus : listavirus) {
+                        for (BSupervivientes supervivientes : listaSupervivientes) {
                     %>
                     <tr>
-                        <td><%=virus.getidVirus()%>
+                        <td><%=supervivientes.getPeso()%>
                         </td>
-                        <td><%=virus.getnombreVirus()%>
+                        <td><%=supervivientes.getFuerza()%>
                         </td>
-                        <td><%=variante.getidVariante()%>
+                        <td><%=humanos.getnombre().getapellido()%>
                         </td>
-                        <td><%=variante.getnombreVariante()%>
-                        </td>
-                        <td><%=zombies.getnombreVariante()%>
+                        <td><%=humanos.getestado()%>
                         </td>
 
                     </tr>

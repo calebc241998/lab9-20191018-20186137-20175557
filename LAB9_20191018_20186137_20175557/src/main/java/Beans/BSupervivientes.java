@@ -1,18 +1,9 @@
-package com.example.lab9_20191018_20186137_20175557.Beans;
+package Beans;
 
-public class BSupervivientes {
-    private String idHumanos;
+public class BSupervivientes extends BHumanos {
     private Float peso;
     private Float fuerza;
     private String idPareja;
-
-    public String getIdHumanos() {
-        return idHumanos;
-    }
-
-    public void setIdHumanos(String idHumanos) {
-        this.idHumanos = idHumanos;
-    }
 
     public Float getPeso() {
         return peso;

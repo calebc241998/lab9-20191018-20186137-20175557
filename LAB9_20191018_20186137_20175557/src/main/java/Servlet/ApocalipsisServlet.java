@@ -1,6 +1,6 @@
-package com.example.lab9_20191018_20186137_20175557.Servlet;
+package Servlet;
 
-import com.example.lab9_20191018_20186137_20175557.Daos.DaoApocalipsis;
+import Daos.DaoApocalipsis;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

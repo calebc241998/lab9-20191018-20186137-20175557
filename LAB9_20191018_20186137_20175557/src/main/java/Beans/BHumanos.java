@@ -1,4 +1,4 @@
-package com.example.lab9_20191018_20186137_20175557.Beans;
+package Beans;
 
 public class BHumanos {
     private String idHumanos;
@@ -45,11 +45,5 @@ public class BHumanos {
 
     public void setEstado(int estado) {
         this.estado = estado;
-    }
-
-    public void setPeso(String string) {
-    }
-
-    public void setFuerza(int anInt) {
     }
 }

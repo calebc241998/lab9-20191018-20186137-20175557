@@ -1,4 +1,4 @@
-package com.example.lab9_20191018_20186137_20175557.Beans;
+package Beans;
 
 public class BMochila {
     private int idObjetos;

@@ -1,5 +1,7 @@
-package com.example.lab9_20191018_20186137_20175557.Daos;
-import com.example.lab9_20191018_20186137_20175557.Beans.BHumanos;
+package Daos;
+import Beans.BHumanos;
+import Beans.BSupervivientes;
+
 import java.sql.*;
 import java.util.ArrayList;
 public class DaoApocalipsis {
@@ -41,8 +43,8 @@ public class DaoApocalipsis {
 
         return mision1;
     }
-    public ArrayList<BHumanos> Mision2(){
-        ArrayList<BHumanos> mision2 = new ArrayList<>();
+    public ArrayList<BSupervivientes> Mision2(){
+        ArrayList<BSupervivientes> mision2 = new ArrayList<>();
         String user = "root";
         String pass = "root";
         String url = "jdbc:mysql://localhost:3306/mysystem4?serverTimezone=America/Lima";
@@ -67,12 +69,12 @@ public class DaoApocalipsis {
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()){
-                BHumanos hu2 = new BHumanos();
+                BSupervivientes hu2 = new BSupervivientes();
                 hu2.setIdHumanos(rs.getString(1));
                 hu2.setNombre(rs.getString(2));
                 hu2.setApellido(rs.getString(3));
-                hu2.setPeso(rs.getString(4));
-                hu2.setFuerza(rs.getInt(5));
+                hu2.setPeso(rs.getFloat(4));
+                hu2.setFuerza(rs.getFloat(5));
 
                 System.out.println("probando");
 
