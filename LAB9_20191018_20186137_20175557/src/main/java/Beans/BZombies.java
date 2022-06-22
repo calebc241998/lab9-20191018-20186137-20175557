@@ -7,6 +7,10 @@ public class BZombies {
     private int idTipo;
     private int victimas;
 
+    public BZombies(String idhumano, String nombre, String sexo, String tiempo_infeccion, int idVariante, int victimas, String nombre_tipo) {
+
+    }
+
     public String getIdHumanos() {
         return idHumanos;
     }
