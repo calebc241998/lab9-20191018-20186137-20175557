@@ -3,7 +3,7 @@ import Beans.BSupervivientes;
 
 import java.sql.*;
 import java.util.ArrayList;
-public class mision2Dao extends DaosBase {
+public class SupervivientesDao extends DaosBase {
 
     public ArrayList<BSupervivientes> ObtenerListaSupervivientes(){
         ArrayList<BSupervivientes> obtenerlistasupervivientes = new ArrayList<>();

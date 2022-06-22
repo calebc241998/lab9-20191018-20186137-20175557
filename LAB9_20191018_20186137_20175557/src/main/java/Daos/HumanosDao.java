@@ -1,11 +1,14 @@
 package Daos;
-import Beans.BHumanos;
-import Beans.BSupervivientes;
 
-import java.sql.*;
+import Beans.BHumanos;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
-public class mision1Dao extends DaosBase {
+public class HumanosDao extends DaosBase {
     public ArrayList<BHumanos> ObtenerListaHumanos(){
         ArrayList<BHumanos> obtenerlistahumanos = new ArrayList<>();
 
