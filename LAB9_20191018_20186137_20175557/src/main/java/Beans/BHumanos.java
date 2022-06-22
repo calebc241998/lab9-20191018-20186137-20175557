@@ -19,6 +19,10 @@ public class BHumanos {
         this.estado = estado;
     }
 
+    public BHumanos(String idhumano, String nombre, String sexo, Float peso, Float fuerza) {
+
+    }
+
     public String getIdHumanos() {
         return idHumanos;
     }

@@ -36,10 +36,8 @@ public class SupervivientesDao extends DaosBase {
                 String sexo = rs.getString(3);
                 Float peso = rs.getFloat(4);
                 Float fuerza = rs.getFloat(5);
-                String pareja = rs.getString(6);
-                Float carga = rs.getFloat(7);
 
-                obtenerlistasupervivientes.add(new BSupervivientes(idhumano,nombre,sexo,peso,fuerza,pareja,carga));
+                obtenerlistasupervivientes.add(new BSupervivientes(idhumano,nombre,sexo,peso,fuerza));
             }
         } catch (SQLException e){
             throw new RuntimeException(e);
@@ -77,10 +75,8 @@ public class SupervivientesDao extends DaosBase {
                 String sexo = rs.getString(3);
                 Float peso = rs.getFloat(4);
                 Float fuerza = rs.getFloat(5);
-                String pareja = rs.getString(6);
-                Float carga = rs.getFloat(7);
 
-                filtrarSupervPorSexo.add(new BSupervivientes(idhumano,nombre,sexo,peso,fuerza,pareja,carga));
+                filtrarSupervPorSexo.add(new BSupervivientes(idhumano,nombre,sexo,peso,fuerza));
             }
         } catch (SQLException e){
             throw new RuntimeException(e);
@@ -108,8 +104,8 @@ public class SupervivientesDao extends DaosBase {
     public void añadirSupervivientes(String idHumanos, Float peso, Float fuerza, String idPareja) {
 
         try (Connection conn = this.obtenerConexion();) {
-            String sql = "INSERT INTO Humanos (idHumanos,nombre,apellido,sexo,estado)\n" +
-                    "VALUES (?,?,?,?,0);";
+            String sql = "INSERT INTO Supervivientes (idHumanos,peso,fuerza,idPareja)\n" +
+                    "VALUES (?,?,?,NULL);";
             try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 pstmt.setString(1, idHumanos);
                 pstmt.setFloat(2, peso);
