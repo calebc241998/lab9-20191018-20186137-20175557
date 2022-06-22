@@ -28,7 +28,7 @@ public class ApocalipsisServlet extends HttpServlet {
                 requestDispatcher.forward(request,response);
             }
             case "supervivientes" -> {
-                request.setAttribute("Mision2", supervivientesdao.ObtenerListaSupervivientes());
+                request.setAttribute("listaSupervivientes", supervivientesdao.ObtenerListaSupervivientes());
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("Mision2.jsp");
                 requestDispatcher.forward(request,response);
             }

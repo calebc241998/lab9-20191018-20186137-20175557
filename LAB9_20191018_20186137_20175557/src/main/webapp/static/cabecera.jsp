@@ -28,7 +28,7 @@
         .navbar {
             padding-left: 20px !important;
             padding-right: 20px !important;
-            background-color: rgb(29 185 84 / 94%) !important;
+            background-color: rgb(255 0 0/ 50%) !important;
         }
 
         .table-transparent {
