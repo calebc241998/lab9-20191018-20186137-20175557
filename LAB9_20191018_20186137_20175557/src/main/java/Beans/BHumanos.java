@@ -3,9 +3,15 @@ package Beans;
 public class BHumanos {
     private String idHumanos;
     private String nombre;
-    private String apellido;
     private String sexo;
-    private int estado;
+    private String estado;
+
+    public BHumanos(String idHumanos, String nombre, String sexo, String estado) {
+        this.idHumanos = idHumanos;
+        this.nombre = nombre;
+        this.sexo = sexo;
+        this.estado = estado;
+    }
 
     public String getIdHumanos() {
         return idHumanos;
@@ -23,14 +29,6 @@ public class BHumanos {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
     public String getSexo() {
         return sexo;
     }
@@ -39,11 +37,11 @@ public class BHumanos {
         this.sexo = sexo;
     }
 
-    public int getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(int estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 }

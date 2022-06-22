@@ -5,6 +5,13 @@ public class BSupervivientes extends BHumanos {
     private Float fuerza;
     private String idPareja;
 
+    public BSupervivientes(String idHumanos, String nombre, String apellido, String sexo, int estado, Float peso, Float fuerza, String idPareja) {
+        super(idHumanos, nombre, apellido, sexo, estado);
+        this.peso = peso;
+        this.fuerza = fuerza;
+        this.idPareja = idPareja;
+    }
+
     public Float getPeso() {
         return peso;
     }
