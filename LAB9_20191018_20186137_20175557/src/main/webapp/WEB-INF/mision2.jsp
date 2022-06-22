@@ -2,10 +2,10 @@
   Created by IntelliJ IDEA.
   User: Kevin
   Date: 21/06/2022
-  Time: 06:24 p. m.
+  Time: 07:08 p. m.
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page import="Beans.BHumanos" %>
+<%@ page import="Beans.BSupervivientes" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <jsp:include page="/static/cabecera.jsp">
