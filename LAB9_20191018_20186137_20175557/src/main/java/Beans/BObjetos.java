@@ -6,6 +6,11 @@ public class BObjetos {
     private Float peso;
     private int vacuna;
 
+    public BObjetos(String nombreObjeto, int stock, Float peso) {
+
+    }
+
+
     public int getIdObjetos() {
         return idObjetos;
     }
