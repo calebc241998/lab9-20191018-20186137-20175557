@@ -9,6 +9,7 @@
 <%@ page import="Daos.SupervivientesDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean type="java.util.ArrayList<Beans.BSupervivientes>" scope="request" id="listaSupervivientes"/>
+
 <html>
     <jsp:include page="/static/cabecera.jsp">
         <jsp:param name="title" value="Menu de supervivientes"/>
@@ -45,9 +46,9 @@
                         </td>
                         <td><%=supervivientes.getFuerza()%>
                         </td>
-                        <td><%=supervivientes.getnombre().getapellido()%>
+                        <td><%=supervivientes.getPareja()%>
                         </td>
-                        <td><%=humanos.getestado()%>
+                        <td><%= supervivientes.get%>
                         </td>
 
                     </tr>

@@ -67,8 +67,9 @@ public class SupervivientesDao extends DaosBase {
                 String sexo = rs.getString(3);
                 Float peso = rs.getFloat(4);
                 Float fuerza = rs.getFloat(5);
+                Float pesocargado = rs.getFloat(8);
 
-                obtenerlistasupervivientes.add(new BSupervivientes(idhumano,nombre,sexo,peso,fuerza));
+                obtenerlistasupervivientes.add(new BSupervivientes(idhumano,nombre,sexo,peso,fuerza, pesocargado));
             }
         } catch (SQLException e){
             throw new RuntimeException(e);
