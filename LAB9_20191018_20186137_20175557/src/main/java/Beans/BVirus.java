@@ -4,7 +4,9 @@ public class BVirus {
     private int idVirus;
     private String nombreVirus;
 
-    public BVirus(int idVirus, String nombreVirus, int idVariante, String nombre_var) {
+    public BVirus(int idVirus, String nombreVirus) {
+        this.idVirus = idVirus;
+        this.nombreVirus = nombreVirus;
     }
 
     public int getIdVirus() {

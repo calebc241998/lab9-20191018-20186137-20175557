@@ -6,8 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="Beans.BSupervivientes" %>
-<%@ page import="Daos.SupervivientesDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean type="java.util.ArrayList<Beans.BSupervivientes>" scope="request" id="supervivientes"/>
 
 <html>
     <jsp:include page="/static/cabecera.jsp">
@@ -38,16 +38,22 @@
                         <th>Peso cargado(kg)</th>
                     </thead>
                     <%
-                        for (SupervivientesDao supervivientes : listaSupervivientes) {
+                        for (BSupervivientes listasupervivientes : supervivientes) {
                     %>
                     <tr>
-                        <td><%=supervivientes.getPeso()%>
+                        <td><%=listasupervivientes.getIdHumanos()%>
                         </td>
-                        <td><%=supervivientes.getFuerza()%>
+                        <td><%=listasupervivientes.getNombre()%>
                         </td>
-                        <td><%=humanos.getnombre().getapellido()%>
+                        <td><%=listasupervivientes.getSexo()%>
                         </td>
-                        <td><%=humanos.getestado()%>
+                        <td><%=listasupervivientes.getPeso()%>
+                        </td>
+                        <td><%=listasupervivientes.getFuerza()%>
+                        </td>
+                        <td><%=listasupervivientes.getPareja()%>
+                        </td>
+                        <td><%=listasupervivientes.getCarga()%>
                         </td>
 
                     </tr>

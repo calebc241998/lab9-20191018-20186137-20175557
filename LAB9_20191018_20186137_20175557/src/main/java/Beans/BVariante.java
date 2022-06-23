@@ -1,9 +1,16 @@
 package Beans;
 
-public class BVariante {
+public class BVariante extends BVirus{
     private int idVariante;
     private String nombreVariante;
-    private int idVirus;
+    private int casos;
+
+    public BVariante(int idVirus, String nombreVirus, int idVariante, String nombreVariante, int casos) {
+        super(idVirus, nombreVirus);
+        this.idVariante = idVariante;
+        this.nombreVariante = nombreVariante;
+        this.casos = casos;
+    }
 
     public int getIdVariante() {
         return idVariante;
@@ -21,11 +28,11 @@ public class BVariante {
         this.nombreVariante = nombreVariante;
     }
 
-    public int getIdVirus() {
-        return idVirus;
+    public int getCasos() {
+        return casos;
     }
 
-    public void setIdVirus(int idVirus) {
-        this.idVirus = idVirus;
+    public void setCasos(int casos) {
+        this.casos = casos;
     }
 }

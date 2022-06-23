@@ -13,8 +13,8 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("tours")? "active": "" %>" href="<%=request.getContextPath()%>/listaTours">Tours</a>
-            </li>
+                <a class="nav-link <%=request.getParameter("page").equals("tours")? "active": "" %>" href="<%=request.getContextPath()%>/">Tours</a>
+            </li>listaTours
             <li class="nav-item">
                 <a class="nav-link <%=request.getParameter("page").equals("bandas")? "active": "" %>" href="<%=request.getContextPath()%>/listaBandas">Bandas</a>
             </li>

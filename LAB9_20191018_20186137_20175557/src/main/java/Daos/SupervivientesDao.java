@@ -41,13 +41,6 @@ public class SupervivientesDao extends DaosBase {
     public ArrayList<BSupervivientes> ObtenerListaSupervivientes(){
         ArrayList<BSupervivientes> obtenerlistasupervivientes = new ArrayList<>();
 
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
         try {
             String sql = "SELECT h.idHumanos AS 'Número de identificación', CONCAT(h.nombre,' ',h.apellido) AS 'Nombre completo', h.sexo AS 'Sexo',\n" +
                     "s.peso AS 'Peso (Kg)', s.fuerza AS 'Fuerza (N)', \n" +
@@ -67,8 +60,10 @@ public class SupervivientesDao extends DaosBase {
                 String sexo = rs.getString(3);
                 Float peso = rs.getFloat(4);
                 Float fuerza = rs.getFloat(5);
+                String pareja = rs.getString(6);
+                Float carga = rs.getFloat(7);
 
-                obtenerlistasupervivientes.add(new BSupervivientes(idhumano,nombre,sexo,peso,fuerza));
+                obtenerlistasupervivientes.add(new BSupervivientes(idhumano,nombre,sexo,peso,fuerza,pareja,carga));
             }
         } catch (SQLException e){
             throw new RuntimeException(e);
@@ -80,12 +75,6 @@ public class SupervivientesDao extends DaosBase {
     public ArrayList<BSupervivientes> FiltrarSupervPorSexo(){
         ArrayList<BSupervivientes> filtrarSupervPorSexo = new ArrayList<>();
 
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
 
         try {
             String sql = "SELECT h.idHumanos AS 'Número de identificación', CONCAT(h.nombre,' ',h.apellido) AS 'Nombre completo', h.sexo AS 'Sexo',\n" +
@@ -106,8 +95,10 @@ public class SupervivientesDao extends DaosBase {
                 String sexo = rs.getString(3);
                 Float peso = rs.getFloat(4);
                 Float fuerza = rs.getFloat(5);
+                String pareja = rs.getString(6);
+                Float carga = rs.getFloat(7);
 
-                filtrarSupervPorSexo.add(new BSupervivientes(idhumano,nombre,sexo,peso,fuerza));
+                filtrarSupervPorSexo.add(new BSupervivientes(idhumano,nombre,sexo,peso,fuerza,pareja,carga));
             }
         } catch (SQLException e){
             throw new RuntimeException(e);

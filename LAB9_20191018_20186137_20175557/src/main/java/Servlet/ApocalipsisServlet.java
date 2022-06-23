@@ -1,6 +1,8 @@
 package Servlet;
 import Daos.HumanosDao;
 import Daos.SupervivientesDao;
+import Daos.VirusDao;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -13,9 +15,11 @@ public class ApocalipsisServlet extends HttpServlet {
         HumanosDao humanosdao = new HumanosDao();
         //VarianteDao varianteDao = new VarianteDao();
         SupervivientesDao supervivientesdao = new SupervivientesDao();
+        VirusDao virusdao = new VirusDao();
         String action = request.getParameter("a") == null ? "listar" : request.getParameter("a");
 
         switch(action){
+
             case "listar" -> {
                 request.setAttribute("listahumanos",humanosdao.ObtenerListaHumanos());
 
@@ -64,8 +68,8 @@ public class ApocalipsisServlet extends HttpServlet {
             }
             //Menú virus
             case "virus" -> {
-                //request.setAttribute("Mision4",VirusDao.Mision3());
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("Mision3.jsp");
+                request.setAttribute("cantidad",virusdao.obtenerNumDeVirus());
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("mision3.jsp");
                 requestDispatcher.forward(request,response);
             }
             /*case "variante" -> {
