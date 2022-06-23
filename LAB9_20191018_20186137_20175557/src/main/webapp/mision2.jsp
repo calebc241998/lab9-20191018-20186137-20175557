@@ -8,7 +8,7 @@
 <%@ page import="Beans.BSupervivientes" %>
 <%@ page import="Daos.SupervivientesDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<jsp:useBean type="java.util.ArrayList<Beans.BSupervivientes>" scope="request" id="listaSupervivientes"/>
 <html>
     <jsp:include page="/static/cabecera.jsp">
         <jsp:param name="title" value="Menu de supervivientes"/>
@@ -38,14 +38,14 @@
                         <th>Peso cargado(kg)</th>
                     </thead>
                     <%
-                        for (SupervivientesDao supervivientes : listaSupervivientes) {
+                        for (BSupervivientes supervivientes : listaSupervivientes) {
                     %>
                     <tr>
                         <td><%=supervivientes.getPeso()%>
                         </td>
                         <td><%=supervivientes.getFuerza()%>
                         </td>
-                        <td><%=humanos.getnombre().getapellido()%>
+                        <td><%=supervivientes.getnombre().getapellido()%>
                         </td>
                         <td><%=humanos.getestado()%>
                         </td>
