@@ -53,11 +53,50 @@
                     %>
                 </table>
             </div>
-            <ul>
-                <li><a href="mision4.jsp">Menu de Zombies</a></li>
-                <li><a href="mision2.jsp">Menu de Supervivientes</a></li>
-            </ul>
+            <h4 class="my-2">Insertar Nueva Variante</h4>
         </div>
+        <div class="card-body p-4 p-md-5">
+            <form>
+                <div class="row">
+                    <div class="col-md-6 mb-1">
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="productName"
+                            >ID de la Variante</label
+                            >
+                            <input
+                                    type="text"
+                                    id="productName"
+                                    class="form-control"
+                                    placeholder="Ingrese Id"
+                            />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="productName"
+                            >Nombre Variante </label
+                            >
+                            <input
+                                    type="text"
+                                    id="productName"
+                                    class="form-control"
+                                    placeholder="Ingrese "
+                            />
+                        </div>
+
+
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="productName"
+                            >Virus</label
+                            >
+                            <input
+                                    type="text"
+                                    id="productName"
+                                    class="form-control"
+                                    placeholder="Ingrese "
+                            />
+                        </div>
+
+                    </div>
         <jsp:include page="/static/scripts.jsp"/>
     </body>
 </html>
