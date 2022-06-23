@@ -13,22 +13,22 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("tours")? "active": "" %>" href="<%=request.getContextPath()%>/listaTours">Humanos</a>
+                <a class="nav-link <%=request.getParameter("page").equals("humanos")? "active": "" %>" href="<%=request.getContextPath()%>/ApocalipsisServlet">Humanos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("bandas")? "active": "" %>" href="<%=request.getContextPath()%>/listaBandas">Supervivientes</a>
+                <a class="nav-link <%=request.getParameter("page").equals("supervivientes")? "active": "" %>" href="<%=request.getContextPath()%>ApocalipsisServlet">Supervivientes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("tpc")? "active": "" %>" href="<%=request.getContextPath()%>/listaToursporCiudad">Virus</a>
+                <a class="nav-link <%=request.getParameter("page").equals("virus")? "active": "" %>" href="<%=request.getContextPath()%>ApocalipsisServlet">Virus</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("canciones")? "active": "" %>" href="<%=request.getContextPath()%>/listaCanciones">Zombies</a>
+                <a class="nav-link <%=request.getParameter("page").equals("zombies")? "active": "" %>" href="<%=request.getContextPath()%>ApocalipsisServlet">Zombies</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("artistas")? "active": "" %>" href="<%=request.getContextPath()%>/listaArtistas">Objetos</a>
+                <a class="nav-link <%=request.getParameter("page").equals("objetos")? "active": "" %>" href="<%=request.getContextPath()%>ApocalipsisServlet">Objetos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("caceria")? "active": "" %>" href="<%=request.getContextPath()%>/listaArtistas">Caceria</a>
+                <a class="nav-link <%=request.getParameter("page").equals("caceria")? "active": "" %>" href="<%=request.getContextPath()%>ApocalipsisServlet">Caceria</a>
             </li>
 
         </ul>

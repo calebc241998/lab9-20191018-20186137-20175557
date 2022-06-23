@@ -5,10 +5,11 @@
   Time: 07:08 p. m.
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page import="Beans.BSupervivientes" %>
-<%@ page import="Beans.BZombies" %>
 <%@ page import="Beans.BVirus" %>
+<%@ page import="Beans.BVariante" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean type="java.lang.Integer" scope="request" id="cantidad"/>
+<jsp:useBean type="java.util.ArrayList<Beans.BHumanos>" scope="request" id="listavirus"/>
 <html>
     <jsp:include page="/static/cabecera.jsp">
         <jsp:param name="title" value="Menu de virus"/>
@@ -33,18 +34,18 @@
                         <th>Casos Encontrados(Campo Calculado)</th>
                     </thead>
                     <%
-                        for (BVirus virus : listavirus) {
+                        for (BVariante virus : listavirus) {
                     %>
                     <tr>
-                        <td><%=virus.getidVirus()%>
+                        <td><%=virus.getIdVirus()%>
                         </td>
-                        <td><%=virus.getnombreVirus()%>
+                        <td><%=virus.getNombreVirus()%>
                         </td>
-                        <td><%=variante.getidVariante()%>
+                        <td><%=virus.getIdVariante()%>
                         </td>
-                        <td><%=variante.getnombreVariante()%>
+                        <td><%=virus.getNombreVariante()%>
                         </td>
-                        <td><%=zombies.getnombreVariante()%>
+                        <td><%=virus.getCasos()%>
                         </td>
 
                     </tr>
@@ -53,11 +54,50 @@
                     %>
                 </table>
             </div>
-            <ul>
-                <li><a href="mision4.jsp">Menu de Zombies</a></li>
-                <li><a href="mision2.jsp">Menu de Supervivientes</a></li>
-            </ul>
+            <h4 class="my-2">Insertar Nueva Variante</h4>
         </div>
+        <div class="card-body p-4 p-md-5">
+            <form>
+                <div class="row">
+                    <div class="col-md-6 mb-1">
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="productName"
+                            >ID de la Variante</label
+                            >
+                            <input
+                                    type="text"
+                                    id="productName"
+                                    class="form-control"
+                                    placeholder="Ingrese Id"
+                            />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="productName"
+                            >Nombre Variante </label
+                            >
+                            <input
+                                    type="text"
+                                    id="productName"
+                                    class="form-control"
+                                    placeholder="Ingrese "
+                            />
+                        </div>
+
+
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="productName"
+                            >Virus</label
+                            >
+                            <input
+                                    type="text"
+                                    id="productName"
+                                    class="form-control"
+                                    placeholder="Ingrese "
+                            />
+                        </div>
+
+                    </div>
         <jsp:include page="/static/scripts.jsp"/>
     </body>
 </html>

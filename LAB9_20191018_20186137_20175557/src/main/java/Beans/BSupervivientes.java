@@ -14,10 +14,6 @@ public class BSupervivientes extends BHumanos {
         this.carga = carga;
     }
 
-    public BSupervivientes(String idhumano, String nombre, String sexo, Float peso, Float fuerza) {
-        super(idhumano, nombre, sexo, peso, fuerza);
-    }
-
     public Float getPeso() {
         return peso;
     }
@@ -40,5 +36,13 @@ public class BSupervivientes extends BHumanos {
 
     public void setPareja(String Pareja) {
         this.pareja = Pareja;
+    }
+
+    public Float getCarga() {
+        return carga;
+    }
+
+    public void setCarga(Float Carga) {
+        this.carga = Carga;
     }
 }

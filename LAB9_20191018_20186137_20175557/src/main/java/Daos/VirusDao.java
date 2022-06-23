@@ -9,13 +9,6 @@ public class VirusDao extends DaosBase{
     public ArrayList<BVirus> ObtenerlistaVirus(){
         ArrayList<BVirus> obtenerlistavirus = new ArrayList<>();
 
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
         try {
             String sql = "SELECT vi.idVirus AS 'ID Virus', vi.nombre AS 'Virus', va.idVariante AS 'ID Variante', va.nombre AS 'Variante',\n" +
                     "(SELECT COUNT(idHumanos) FROM Zombies z WHERE z.idVariante = va.idVariante) AS 'Casos encontrados'\n" +
@@ -30,7 +23,8 @@ public class VirusDao extends DaosBase{
                 String nombreVirus = rs.getString(2);
                 int idVariante = rs.getInt(3);
                 String nombre_var = rs.getString(4);
-                obtenerlistavirus.add(new BVirus(idVirus,nombreVirus,idVariante,nombre_var));
+                int casos = rs.getInt(3);
+                obtenerlistavirus.add(new BVariante(idVirus,nombreVirus,idVariante,nombre_var,casos));
             }
         } catch (SQLException e){
             throw new RuntimeException(e);
@@ -38,16 +32,9 @@ public class VirusDao extends DaosBase{
 
         return obtenerlistavirus;
     }
-    //AYUDAAAA
-    /*
 
-    public BVirus obtenerNumDeVirus(BVirus cantidad) {
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+    public Integer obtenerNumDeVirus() {
+        Integer virusactivos = null;
 
         String sql_fuerza = "SELECT COUNT(vi.idVirus) AS 'Virus activos' FROM virus vi;";
         try (Connection conn = this.obtenerConexion();
@@ -56,8 +43,7 @@ public class VirusDao extends DaosBase{
         ) {
             try (ResultSet rs = pstmt.executeQuery();) {
                 while (rs.next()) {
-                    cantidad.setPeso(rs.getFloat(1));
-                    System.out.println(rs.getFloat(1));
+                    virusactivos =rs.getInt(1);
                 }
             }
 
@@ -65,10 +51,9 @@ public class VirusDao extends DaosBase{
         } catch (SQLException error) {
             error.printStackTrace();
         }
-
-        return cantidad;
+        return virusactivos;
     }
-    */
+
     public BVirus obtenerNombreVirus(BVirus nombre) {
 
         try {
